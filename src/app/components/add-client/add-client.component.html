@@ -14,7 +14,7 @@
     Add Client
   </div>
   <div class="card-body">
-    <form #clientForm="ngForm" (ngForm)="onSubmit(clientForm)">
+    <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)">
       <!-- firstname -->
       <div class="form-group">
           <label for="firstName">First Name</label>
@@ -76,7 +76,7 @@
           <div [hidden]="!clientPhone.errors?.required"  class="invalid-feedback">Phone required</div>
           <div [hidden]="!clientPhone.errors?.minlength"  class="invalid-feedback">Must be atleast 10 characters</div>
       </div>
-    </form>
+    
 
     <!-- balance -->
     <div class="form-group">
@@ -90,6 +90,10 @@
         [disabled]="disableBalanceOnAdd"
         >
     </div>
-  
+
+    <!-- onSubmit button -->
+    <input type="submit" value="Submit" class="btn btn-primary btn-block"/>
+
+  </form>
   </div>
 </div>
