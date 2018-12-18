@@ -12,11 +12,14 @@ export class ClientsComponent implements OnInit {
 
   clients: Client[];
   totalOwed: number;
+  loading: boolean;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit() {
+
     this.clientService.getClients().subscribe(clients => {
+      this.loading = true;
       this.clients = clients;
       this.getTotalOwed();
     });
@@ -24,9 +27,9 @@ export class ClientsComponent implements OnInit {
   
   getTotalOwed() {
     this.totalOwed = this.clients.reduce((total, client) => {
-      return total + client.balance;
+      return total + parseFloat(client.balance.toString());
       
     }, 0);
-
-  }e
+    console.log("client component")
+  }
 }

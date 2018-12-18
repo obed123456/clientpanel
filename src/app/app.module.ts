@@ -23,8 +23,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NoFoundComponent } from './components/no-found/no-found.component';
 
-import { ClientService } from './services/client.service';
 //services 
+import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
+import { SettingsService } from './services/settings.service';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,7 @@ import { ClientService } from './services/client.service';
     FormsModule
   ],
   //services goes under provider
-  providers: [ClientService],
+  providers: [ClientService, AuthService, SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
